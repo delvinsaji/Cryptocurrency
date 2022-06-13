@@ -1,0 +1,28 @@
+.h {
+  font-size: 25px;
+  background-color: #29648a;
+  color: #aaabb8;
+}
+
+tr {
+  color: #29648a;
+  text-align: left;
+}
+
+th {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+tr:hover th {
+  background-color: #81818c;
+}
+table {
+  background-color: #aaabb8;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
