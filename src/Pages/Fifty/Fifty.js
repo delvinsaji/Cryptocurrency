@@ -4,7 +4,7 @@ import axios from "axios";
 
 function Fifty() {
   const [coindata, setcoindata] = useState();
-  const [rowcss, setRowcss] = useState("row");
+
   const options = {
     method: "GET",
     url: "https://coinranking1.p.rapidapi.com/coins",
@@ -32,38 +32,38 @@ function Fifty() {
         alert.error(error);
       });
   }, []);
-  console.log(coindata);
-
   return (
     <div>
-      <table>
-        <tr>
-          <th className="tableindex h">SL.No</th>
-          <th className="tableicon h">Icon</th>
-          <th className="tablesymbol h">Symbol</th>
-          <th className="tablename h">Name</th>
-          <th className="tableprice h">Price</th>
-          <th className="tablemarket h">Market Cap</th>
-          <th className="market24 h">24h Volume</th>
-          <th className="tablechange h">Change</th>
-        </tr>
-        {coindata
-          ? coindata.coins.map((obj, index) => (
-              <tr className={rowcss}>
-                <th>{index + 1}</th>
-                <th>
-                  <img src={obj.iconUrl} width="20" />
-                </th>
-                <th>{obj.symbol}</th>
-                <th>{obj.name}</th>
-                <th>{Number(obj.price.slice(0, -8))}</th>
-                <th>{Number(obj.marketCap)}</th>
-                <th>{Number(obj["24hVolume"])}</th>
-                <th>{Number(obj.change)}</th>
-              </tr>
-            ))
-          : ""}
-      </table>
+      <div className="first">
+        <table>
+          <tr>
+            <th className="tableindex h">SL.No</th>
+            <th className="tableicon h">Icon</th>
+            <th className="tablesymbol h">Symbol</th>
+            <th className="tablename h">Name</th>
+            <th className="tableprice h">Price</th>
+            <th className="tablemarket h">Market Cap</th>
+            <th className="market24 h">24h Volume</th>
+            <th className="tablechange h">Change</th>
+          </tr>
+          {coindata
+            ? coindata.coins.map((obj, index) => (
+                <tr>
+                  <th>{index + 1}</th>
+                  <th>
+                    <img src={obj.iconUrl} width="20" />
+                  </th>
+                  <th>{obj.symbol}</th>
+                  <th>{obj.name}</th>
+                  <th>{Number(obj.price.slice(0, -8))}</th>
+                  <th>{Number(obj.marketCap)}</th>
+                  <th>{Number(obj["24hVolume"])}</th>
+                  <th>{Number(obj.change)}</th>
+                </tr>
+              ))
+            : ""}
+        </table>
+      </div>
     </div>
   );
 }
