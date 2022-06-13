@@ -139,3 +139,5 @@ function Fifty() {
 }
 
 export default Fifty;
+
+// Coinranking API
