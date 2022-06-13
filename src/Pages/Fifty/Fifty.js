@@ -26,12 +26,14 @@ function Fifty() {
     axios
       .request(options)
       .then((Response) => {
-        setcoindata(Response.data.data);
+        setcoindata(Response.data.data.coins);
       })
       .catch(function (error) {
         alert.error(error);
       });
   }, []);
+  console.log(coindata);
+
   return (
     <div>
       <div className="first">
@@ -40,14 +42,77 @@ function Fifty() {
             <th className="tableindex h">SL.No</th>
             <th className="tableicon h">Icon</th>
             <th className="tablesymbol h">Symbol</th>
-            <th className="tablename h">Name</th>
-            <th className="tableprice h">Price</th>
-            <th className="tablemarket h">Market Cap</th>
-            <th className="market24 h">24h Volume</th>
-            <th className="tablechange h">Change</th>
+            <th
+              onClick={() => {
+                const copy = [...coindata];
+                copy.sort((a, b) => {
+                  let fa = a.name.toLowerCase();
+                  let fb = b.name.toLowerCase();
+
+                  if (fa < fb) {
+                    return -1;
+                  } else {
+                    return 1;
+                  }
+                  return 0;
+                });
+                setcoindata(copy);
+              }}
+              className="tablename h"
+            >
+              Name
+            </th>
+            <th
+              onClick={() => {
+                const copy = [...coindata];
+                copy.sort((a, b) => {
+                  return a.price - b.price;
+                });
+                setcoindata(copy);
+              }}
+              className="tableprice h"
+            >
+              Price
+            </th>
+            <th
+              onClick={() => {
+                const copy = [...coindata];
+                copy.sort((a, b) => {
+                  return a.marketCap - b.marketCap;
+                });
+                setcoindata(copy);
+              }}
+              className="tablemarket h"
+            >
+              Market Cap
+            </th>
+            <th
+              onClick={() => {
+                const copy = [...coindata];
+                copy.sort((a, b) => {
+                  return a["24hVolume"] - b["24hVolume"];
+                });
+                setcoindata(copy);
+              }}
+              className="market24 h"
+            >
+              24h Volume
+            </th>
+            <th
+              onClick={() => {
+                const copy = [...coindata];
+                copy.sort((a, b) => {
+                  return a.change - b.change;
+                });
+                setcoindata(copy);
+              }}
+              className="tablechange h"
+            >
+              Change
+            </th>
           </tr>
           {coindata
-            ? coindata.coins.map((obj, index) => (
+            ? coindata.map((obj, index) => (
                 <tr>
                   <th>{index + 1}</th>
                   <th>
@@ -63,7 +128,12 @@ function Fifty() {
               ))
             : ""}
         </table>
+        <p style={{ color: "white" }}>
+          *Click on the heading of the table to sort the table based on the
+          particular header value
+        </p>
       </div>
+      <div className="global"></div>
     </div>
   );
 }

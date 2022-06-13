@@ -42,3 +42,7 @@ table {
   left: 0px;
   background-color: rgba(128, 128, 128, 0.53);
 }
+
+.h:hover {
+  background-color: #29648a;
+}
