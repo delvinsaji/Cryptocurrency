@@ -25,7 +25,13 @@ function Header() {
         >
           News
         </p>
-        <p>Top Cryptos</p>
+        <p
+          onClick={() => {
+            navigate("/global");
+          }}
+        >
+          Global Stats
+        </p>
       </div>
     </div>
   );

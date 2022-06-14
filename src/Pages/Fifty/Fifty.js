@@ -113,7 +113,11 @@ function Fifty() {
           </tr>
           {coindata
             ? coindata.map((obj, index) => (
-                <tr>
+                <tr
+                  onClick={() => {
+                    window.open(obj.coinrankingUrl);
+                  }}
+                >
                   <th>{index + 1}</th>
                   <th>
                     <img src={obj.iconUrl} width="20" />
@@ -131,6 +135,10 @@ function Fifty() {
         <p style={{ color: "white" }}>
           *Click on the heading of the table to sort the table based on the
           particular header value
+        </p>
+        <p style={{ color: "white" }}>
+          *Click on the row to open the Coin ranking website for the respective
+          coin
         </p>
       </div>
       <div className="global"></div>

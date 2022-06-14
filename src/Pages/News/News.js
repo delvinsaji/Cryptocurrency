@@ -23,7 +23,6 @@ function News() {
         setPage(news.slice(0, 10));
       })
       .catch(function (error) {
-        console.log(error);
         alert(error.data);
       });
   }, []);
