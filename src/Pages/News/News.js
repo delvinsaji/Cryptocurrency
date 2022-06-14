@@ -5,6 +5,7 @@ import axios from "axios";
 function News() {
   const [news, setNews] = useState();
   const [page, setPage] = useState();
+  const [pgno, setPgno] = useState(1);
   const options = {
     method: "GET",
     url: "https://crypto-news-live3.p.rapidapi.com/news",
@@ -19,16 +20,18 @@ function News() {
       .request(options)
       .then(function (response) {
         setNews(response.data);
+        setPage(news.slice(0, 10));
       })
       .catch(function (error) {
+        console.log(error);
         alert(error.data);
       });
   }, []);
   return (
     <div>
-      <div className="news">
-        {news
-          ? news.map((obj) => (
+      <div>
+        {page
+          ? page.map((obj) => (
               <div
                 className="news"
                 onClick={() => {
@@ -41,83 +44,84 @@ function News() {
             ))
           : ""}
       </div>
+      <p style={{ textAlign: "center", color: "white" }}>{pgno} of 10</p>
       <div className="page">
         <p
           onClick={() => {
-            var copy = [...news];
-            setNews(copy.slice(0, 10));
+            setPage(news.slice(0, 10));
+            setPgno(1);
           }}
         >
           1
         </p>
         <p
           onClick={() => {
-            var copy = [...news];
-            setNews(copy.slice(10, 20));
+            setPage(news.slice(10, 20));
+            setPgno(2);
           }}
         >
           2
         </p>
         <p
           onClick={() => {
-            var copy = [...news];
-            setNews(copy.slice(20, 30));
+            setPage(news.slice(20, 30));
+            setPgno(3);
           }}
         >
           3
         </p>
         <p
           onClick={() => {
-            var copy = [...news];
-            setNews(copy.slice(30, 40));
+            setPage(news.slice(30, 40));
+            setPgno(4);
           }}
         >
           4
         </p>
         <p
           onClick={() => {
-            var copy = [...news];
-            setNews(copy.slice(40, 50));
+            setPage(news.slice(40, 50));
+            setPgno(5);
           }}
         >
           5
         </p>
         <p
           onClick={() => {
-            var copy = [...news];
-            setNews(copy.slice(50, 60));
+            setPage(news.slice(50, 60));
+            setPgno(6);
           }}
         >
           6
         </p>
         <p
           onClick={() => {
-            var copy = [...news];
-            setNews(copy.slice(60, 70));
+            setPage(news.slice(60, 70));
+            setPgno(7);
           }}
         >
           7
         </p>
         <p
           onClick={() => {
-            var copy = [...news];
-            setNews(copy.slice(70, 80));
+            setPage(news.slice(70, 80));
+            setPgno(8);
           }}
         >
           8
         </p>
         <p
           onClick={() => {
-            var copy = [...news];
-            setNews(copy.slice(80, 90));
+            setPage(news.slice(80, 90));
+            setPgno(9);
           }}
         >
           9
         </p>
         <p
           onClick={() => {
-            var copy = [...news];
-            setNews(copy.slice(90));
+            setPage(news.slice(90));
+            setPgno(10);
           }}
         >
           10

@@ -11,7 +11,13 @@ function Header() {
         <h1 className="header2"> CURRENCY</h1>
       </div>
       <div className="headerlinks">
-        <p>Home</p>
+        <p
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Home
+        </p>
         <p
           onClick={() => {
             navigate("/news");
