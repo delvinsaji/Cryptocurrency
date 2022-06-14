@@ -1,7 +1,9 @@
 import React from "react";
 import "./Header.css";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
   return (
     <div className="header">
       <div className="headername">
@@ -10,7 +12,13 @@ function Header() {
       </div>
       <div className="headerlinks">
         <p>Home</p>
-        <p>News</p>
+        <p
+          onClick={() => {
+            navigate("/news");
+          }}
+        >
+          News
+        </p>
         <p>Top Cryptos</p>
       </div>
     </div>

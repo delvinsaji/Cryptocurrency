@@ -4,6 +4,7 @@ import axios from "axios";
 
 function News() {
   const [news, setNews] = useState();
+  const [page, setPage] = useState();
   const options = {
     method: "GET",
     url: "https://crypto-news-live3.p.rapidapi.com/news",
@@ -25,19 +26,103 @@ function News() {
   }, []);
   return (
     <div>
-      {news
-        ? news.map((obj) => (
-            <div
-              className="news"
-              onClick={() => {
-                window.open(obj.url);
-              }}
-            >
-              <p style={{ fontSize: "25px" }}>{obj.title}</p>
-              <p style={{ fontSize: "15px" }}>Source: {obj.source}</p>
-            </div>
-          ))
-        : ""}
+      <div className="news">
+        {news
+          ? news.map((obj) => (
+              <div
+                className="news"
+                onClick={() => {
+                  window.open(obj.url);
+                }}
+              >
+                <p style={{ fontSize: "25px" }}>{obj.title}</p>
+                <p style={{ fontSize: "15px" }}>Source: {obj.source}</p>
+              </div>
+            ))
+          : ""}
+      </div>
+      <div className="page">
+        <p
+          onClick={() => {
+            var copy = [...news];
+            setNews(copy.slice(0, 10));
+          }}
+        >
+          1
+        </p>
+        <p
+          onClick={() => {
+            var copy = [...news];
+            setNews(copy.slice(10, 20));
+          }}
+        >
+          2
+        </p>
+        <p
+          onClick={() => {
+            var copy = [...news];
+            setNews(copy.slice(20, 30));
+          }}
+        >
+          3
+        </p>
+        <p
+          onClick={() => {
+            var copy = [...news];
+            setNews(copy.slice(30, 40));
+          }}
+        >
+          4
+        </p>
+        <p
+          onClick={() => {
+            var copy = [...news];
+            setNews(copy.slice(40, 50));
+          }}
+        >
+          5
+        </p>
+        <p
+          onClick={() => {
+            var copy = [...news];
+            setNews(copy.slice(50, 60));
+          }}
+        >
+          6
+        </p>
+        <p
+          onClick={() => {
+            var copy = [...news];
+            setNews(copy.slice(60, 70));
+          }}
+        >
+          7
+        </p>
+        <p
+          onClick={() => {
+            var copy = [...news];
+            setNews(copy.slice(70, 80));
+          }}
+        >
+          8
+        </p>
+        <p
+          onClick={() => {
+            var copy = [...news];
+            setNews(copy.slice(80, 90));
+          }}
+        >
+          9
+        </p>
+        <p
+          onClick={() => {
+            var copy = [...news];
+            setNews(copy.slice(90));
+          }}
+        >
+          10
+        </p>
+      </div>
     </div>
   );
 }
