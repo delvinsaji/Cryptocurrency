@@ -32,6 +32,13 @@ function Header() {
         >
           Global Stats
         </p>
+        <p
+          onClick={() => {
+            navigate("/top");
+          }}
+        >
+          Top Coins
+        </p>
       </div>
     </div>
   );

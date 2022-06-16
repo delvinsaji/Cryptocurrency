@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Top.css";
+import "./Global.css";
 import axios from "axios";
 
 function GlobalStats() {

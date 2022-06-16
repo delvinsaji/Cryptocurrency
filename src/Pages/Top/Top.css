@@ -1,40 +1,46 @@
-.heading {
-  text-align: center;
-  color: #aaabb8;
-}
-
-.stats {
-  text-align: center;
-  display: grid;
-  grid-template-columns: 200px 200px 200px;
-  grid-template-rows: 100px 100px;
-  align-items: center;
-  justify-content: center;
-  color: #aaabb8;
-  border: 1px solid #aaabb8;
-  margin: 50px 80px;
-}
-
-.val {
+.toplist {
   color: white;
-  font-size: 20px;
-  font-weight: bold;
-}
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
 
-.tables {
-  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 50px;
+  margin-top: 50px;
+  gap: 150px;
+  row-gap: 50px;
 }
 
-.tables h6 {
+.toplist p {
   text-align: center;
-  color: #aaabb8;
+  margin: 0;
+  background-color: #464864;
+  width: 200px;
   font-size: 20px;
-  margin-bottom: 10px;
+  padding: 10px 10px;
 }
-.tables table {
+
+.toplist p:hover {
+  transition: 0.3s;
+  background-color: #3c3e55;
+}
+
+.coindet h3 {
+  color: white;
+  font-size: 30px;
+  padding-left: 20px;
+  padding-top: 40px;
+}
+
+.inner h3 {
+  font-size: 15px;
   margin: 0px;
-  margin-bottom: 50px;
+  padding: 0px;
+  padding-left: 20px;
+}
+
+.inner {
+  color: white;
+}
+.inner p {
+  padding-left: 20px;
 }
